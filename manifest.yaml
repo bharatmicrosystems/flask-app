@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: '${ namespace }'
+  name: staging
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: flask-app
-  namespace: '${ namespace }'
+  namespace: staging
 spec:
   ports:
     - port: 80
@@ -23,7 +23,7 @@ metadata:
   labels:
     app: flask-app
   name: flask-app
-  namespace: '${ namespace }'
+  namespace: staging
 spec:
   replicas: 3
   selector:
